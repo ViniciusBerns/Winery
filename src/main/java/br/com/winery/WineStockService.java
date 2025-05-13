@@ -1,12 +1,15 @@
 package br.com.winery;
 
 
+import jakarta.jws.WebMethod;
 import jakarta.jws.WebService;
 import jakarta.jws.soap.SOAPBinding;
 
 @WebService
-@SOAPBinding
+@SOAPBinding(style = SOAPBinding.Style.RPC)
+
+
 public interface WineStockService {
-    public String getMenu();
-    public String placeOrder(String name, Integer quantity);
+    @WebMethod public String getMenu();
+    @WebMethod public String placeOrder(String name, Integer quantity);
 }
